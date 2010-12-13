@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
-        #{get 'moreScripts' /}
-    </head>
-    <body>
-        #{doLayout /}
-    </body>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+    <link href="@{'/public/stylesheets/jquery.tweet.css'}" media="all" rel="stylesheet" type="text/css"/>
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+    <script language="javascript" src="@{'/public/javascripts/jquery.tweet.js'}" type="text/javascript" charset="utf-8"></script>
+    #{get 'moreScripts' /}
+</head>
+<body>
+#{doLayout /}
+<script type='text/javascript'>
+        $(document).ready(function() {
+            $(".tweet").tweet({
+                join_text: "auto",
+                avatar_size: 32,
+                count: 3,
+                query: "#OpenTCK",
+                auto_join_text_default: "we said,",
+                auto_join_text_ed: "we",
+                auto_join_text_ing: "we were",
+                auto_join_text_reply: "we replied to",
+                auto_join_text_url: "we were checking out",
+                loading_text: "loading tweets..."
+            });
+        });
+    </script>
+</body>
 </html>
