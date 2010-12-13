@@ -8,14 +8,12 @@
     <link href="@{'/public/stylesheets/jquery.tweet.css'}" media="all" rel="stylesheet" type="text/css"/>
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-    <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
-    <script language="javascript" src="@{'/public/javascripts/jquery.tweet.js'}" type="text/javascript" charset="utf-8"></script>
-    #{get 'moreScripts' /}
-</head>
-<body>
-#{doLayout /}
-<script type='text/javascript'>
-        $(document).ready(function() {
+
+    <script src="@{'/public/javascripts/head.min.js'}" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        head.js("@{'/public/javascripts/jquery-1.4.2.min.js'}", "@{'/public/javascripts/jquery.tweet.js'}");
+
+        head.ready(function() {
             $(".tweet").tweet({
                 join_text: "auto",
                 avatar_size: 32,
@@ -30,5 +28,9 @@
             });
         });
     </script>
+    #{get 'moreScripts' /}
+</head>
+<body>
+#{doLayout /}
 </body>
 </html>
