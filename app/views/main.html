@@ -26,6 +26,18 @@
 //                auto_join_text_url: "we were checking out",
                 loading_text: "loading tweets for #OpenTCK..."
             });
+
+            $.getJSON(
+                    "@{Github.repositories}",
+                     function(data) {
+                         var text = "";
+                         $.each(data["repositories"],function(index, obj){
+                             text += ("<li><a href='"+ obj["url"] +"/'>"+obj["name"] + "</a></li>");
+                         });
+                         $("#public_repositories ul").html(text);
+                         text = null;
+                     }
+                    );
         });
     </script>
     #{get 'moreScripts' /}
