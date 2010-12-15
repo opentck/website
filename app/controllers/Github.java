@@ -2,8 +2,6 @@ package controllers;
 
 import play.cache.Cache;
 import play.libs.WS;
-import play.mvc.Controller;
-import play.mvc.With;
 
 /**
  * Controller that caches Data from Github

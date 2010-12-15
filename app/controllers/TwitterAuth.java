@@ -2,9 +2,8 @@ package controllers;
 
 import groovy.util.slurpersupport.GPathResult;
 import groovy.util.slurpersupport.Node;
-
+import models.Member;
 import models.OAuthCredentials;
-import models.User;
 import play.Logger;
 import play.cache.Cache;
 import play.libs.Codec;
@@ -80,7 +79,7 @@ public class TwitterAuth extends Controller {
         if(username == null)
             throw new IllegalStateException("Username may not be null");
 
-        User u = getUser(username);
+        Member u = getUser(username);
         play.Logger.trace("got user " + u);
         u.credentials = cred;
         u.save();
@@ -123,12 +122,12 @@ public class TwitterAuth extends Controller {
         return connector;
     }
 
-    static User getUser(String username) {
+    static Member getUser(String username) {
         if(username==null)
             username = Security.connected();
         if(username == null)
             throw new IllegalStateException("Username may not be null, you're not logged in.");
-        return User.findOrCreate(username);
+        return Member.findOrCreate(username);
     }
 
 }

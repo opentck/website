@@ -1,6 +1,6 @@
 package controllers;
 
-import models.User;
+import models.Member;
 
 /**
  * Dominik Dorn
@@ -30,7 +30,7 @@ public class Security extends Secure.Security {
         if(connected() == null)
             return false;
         if("admin".equals(profile)) {
-            User u = User.find("username", connected()).first();
+            Member u = Member.find("username", connected()).first();
             if(u == null)
                 return false;
             return u.isAdmin;

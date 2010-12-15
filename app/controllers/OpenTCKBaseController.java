@@ -1,6 +1,6 @@
 package controllers;
 
-import models.User;
+import models.Member;
 import play.mvc.Before;
 import play.mvc.Controller;
 
@@ -12,7 +12,7 @@ public class OpenTCKBaseController extends Controller {
     @Before
     static void setConnectedUser(){
         if(Security.isConnected()){
-            User user = User.find("username", Security.connected()).first();
+            Member user = Member.find("username", Security.connected()).first();
             if(user != null){
                 renderArgs.put("user", user.username);
             }

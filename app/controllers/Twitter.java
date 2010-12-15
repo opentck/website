@@ -1,8 +1,7 @@
 package controllers;
 
-import models.User;
+import models.Member;
 import play.libs.WS;
-import play.mvc.Controller;
 import play.mvc.With;
 
 import java.net.URLEncoder;
@@ -12,7 +11,7 @@ public class Twitter extends OpenTCKBaseController {
 
     public static void index() throws Exception {
         String url = "http://twitter.com/statuses/mentions.xml";
-        User user = getUser();
+        Member user = getUser();
 
         String mentions = play.libs.WS.url(TwitterAuth.getConnector().sign(user.credentials, url)).get().getString();
 		render(mentions, user);
@@ -25,8 +24,8 @@ public class Twitter extends OpenTCKBaseController {
 		renderText(response);
 	}
 
-    static User getUser() {
-        return User.find("byUsername", Security.connected()).first();
+    static Member getUser() {
+        return Member.find("byUsername", Security.connected()).first();
     }
 
 }
