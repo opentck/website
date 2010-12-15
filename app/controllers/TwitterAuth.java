@@ -81,7 +81,12 @@ public class TwitterAuth extends Controller {
 
         Member u = getUser(username);
         play.Logger.trace("got user " + u);
-        u.credentials = cred;
+        if(u.credentials != null)
+            u.credentials.replace(cred);
+        else
+            u.credentials = cred;
+
+        u.credentials.save();
         u.save();
         play.Logger.trace("saved");
 

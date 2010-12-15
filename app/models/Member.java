@@ -3,7 +3,8 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -13,8 +14,8 @@ public class Member extends Model {
         public boolean isAdmin = false;
 
 
-
-    public OAuthCredentials credentials;
+    @OneToOne(fetch = FetchType.EAGER)
+    public OAuthCredentials credentials = new OAuthCredentials();
 
         public Member(String username) {
                 this.username = username;

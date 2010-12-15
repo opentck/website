@@ -34,4 +34,10 @@ public class OAuthCredentials extends Model implements ICredentials, Serializabl
     public String getSecret() {
         return this.secret;
     }
+
+    public void replace(OAuthCredentials other)
+    {
+        this.secret = other.secret;
+        this.token = other.token;
+    }
 }
