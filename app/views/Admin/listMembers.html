@@ -1,0 +1,22 @@
+#{extends 'template.html' /}
+
+#{set title:"Admin area" /}
+
+<h1>List all members</h1>
+
+<table>
+    <thead>
+    <td>ID</td>
+    <td>Username</td>
+    <td>isAdmin</td>
+    </thead>
+    <tbody>
+    #{list items:members, as:'member'}
+    <tr>
+        <td>${member.id}</td>
+        <td><a href="http://twitter.com/${member.username}" target="_blank">${member.username}</a></td>
+        <td>${member.isAdmin}</td>
+    </tr>
+    #{/list}
+    </tbody>
+</table>
