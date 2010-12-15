@@ -13,12 +13,13 @@ public class User extends Model {
         public boolean isAdmin = false;
 
 
-        public Credentials credentials;
+
+    public OAuthCredentials credentials;
 
         public User(String username) {
                 this.username = username;
-                this.credentials = new Credentials();
-                this.credentials.save();
+                this.credentials = new OAuthCredentials();
+//                this.credentials.save();
         }
 
         public static User findOrCreate(String username) {
