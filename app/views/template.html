@@ -8,10 +8,18 @@
 <div class="wrapper">
 
 	<div id="docSidebar">
-
 		<div id="logo">
 			<img src="@{'/public/images/logo.png'}">
 		</div>
+
+#{ifnot user}
+    <a href="@{TwitterAuth.authenticate()}">Login with twitter</a>
+#{/ifnot}
+#{else}
+    Hello <a href="http://www.twitter.com/${user}" target="_blank">${user}</a><br/>
+    <a href="@{Secure.logout()}">Logout</a>
+
+#{/else}
 
         <h2>Join us</h2>
         <ul>
