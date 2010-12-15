@@ -2,7 +2,7 @@ User(domdorn):
       username:   domdorn
       isAdmin:    true
 
-User(manuelbernhardt)
+User(manuelbernhardt):
       username:   elmanu
       isAdmin:    true
 
