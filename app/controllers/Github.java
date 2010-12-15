@@ -8,7 +8,7 @@ import play.mvc.With;
 /**
  * Controller that caches Data from Github
  */
-public class Github extends Controller {
+public class Github extends OpenTCKBaseController {
 
     private static final String GITHUB_REPOS_CACHE_NAME = "githubRepos";
 
