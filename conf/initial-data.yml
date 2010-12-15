@@ -1,8 +1,8 @@
-Credentials(domdorn_cred):
-      token:    abcd
-      secret:   abcd
-
 User(domdorn):
       username:   domdorn
       isAdmin:    true
-      credentials:  domdorn_cred
+
+User(manuelbernhardt)
+      username:   elmanu
+      isAdmin:    true
+
