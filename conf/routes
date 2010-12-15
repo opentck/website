@@ -3,8 +3,11 @@
 # ~~~~
 
 # Import Secure routes
+GET     /login                                  TwitterAuth.authenticate
 *       /                                       module:secure
 
+GET     /twitter/                               Twitter.index
+GET     /loggedInTwitter                        Application.loggedInTwitter
 # Home page
 GET     /                                       Application.index
 
@@ -12,6 +15,12 @@ GET     /api/github/repositories.json                Github.repositories
 
 GET     /admin/                                 Admin.index
 
+
+GET     /auth_twitter                           TwitterAuth.authenticate
+GET     /auth_twitter_set/{uuid}                TwitterAuth.authenticate
+
+
+POST	/ws/status					    		Application.setStatus
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
