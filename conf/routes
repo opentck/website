@@ -2,10 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Import Secure routes
+*       /                                       module:secure
+
 # Home page
 GET     /                                       Application.index
 
 GET     /api/github/repositories.json                Github.repositories
+
+GET     /admin/                                 Admin.index
+
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
