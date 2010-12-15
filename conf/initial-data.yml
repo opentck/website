@@ -1,8 +1,8 @@
-User(domdorn):
+Member(domdorn):
       username:   domdorn
       isAdmin:    true
 
-User(manuelbernhardt):
+Member(manuelbernhardt):
       username:   elmanu
       isAdmin:    true
 
