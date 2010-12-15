@@ -32,7 +32,7 @@
                      function(data) {
                          var text = "";
                          $.each(data["repositories"],function(index, obj){
-                             text += ("<li><a href='"+ obj["url"] +"/'>"+obj["name"] + "</a></li>");
+                             text += ("<li><p><a href='"+ obj["url"] +"/' target='_blank'>"+obj["name"] + "</a><br/>"+obj["description"]+"</p></li>");
                          });
                          $("#public_repositories ul").html(text);
                          text = null;
