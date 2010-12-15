@@ -11,10 +11,9 @@ public class Twitter extends OpenTCKBaseController {
 
     public static void index() throws Exception {
         String url = "http://twitter.com/statuses/mentions.xml";
-        Member user = getUser();
 
-        String mentions = play.libs.WS.url(TwitterAuth.getConnector().sign(user.credentials, url)).get().getString();
-		render(mentions, user);
+        String mentions = play.libs.WS.url(TwitterAuth.getConnector().sign(getUser().credentials, url)).get().getString();
+		render(mentions);
     }
 
     public static void setStatus(String status) throws Exception {
@@ -25,7 +24,7 @@ public class Twitter extends OpenTCKBaseController {
 	}
 
     static Member getUser() {
-        return Member.find("byUsername", Security.connected()).first();
+        return Member.find("username", Security.connected()).first();
     }
 
 }
