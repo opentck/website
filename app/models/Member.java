@@ -1,13 +1,13 @@
 package models;
 
-import play.db.jpa.*;
+import play.db.jpa.Model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 
 
 @Entity
-public class User extends Model {
+public class Member extends Model {
 
         public String username;
         public boolean isAdmin = false;
@@ -16,16 +16,16 @@ public class User extends Model {
 
     public OAuthCredentials credentials;
 
-        public User(String username) {
+        public Member(String username) {
                 this.username = username;
                 this.credentials = new OAuthCredentials();
 //                this.credentials.save();
         }
 
-        public static User findOrCreate(String username) {
-                User user = User.find("username", username).first();
+        public static Member findOrCreate(String username) {
+                Member user = Member.find("username", username).first();
                 if (user == null) {
-                        user = new User(username);
+                        user = new Member(username);
                 }
                 return user;
         }
